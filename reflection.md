@@ -4,8 +4,20 @@
 
 **a. Initial design**
 
-- Briefly describe your initial UML design.
-- What classes did you include, and what responsibilities did you assign to each?
+-**Three core actions:**
+
+1. Users can add pets by entering their names and animal types.
+2. Users can schedule tasks for their pets, such as feeding, walking, or giving medicine.
+3. Users can view their pets' daily tasks, see which tasks are most important, and mark tasks as completed.
+
+**Classes and their responsibilities:**
+
+1. **Owner:** Stores the owner's name and a list of their pets. The owner can add pets and view them.
+2. **Pet:** Stores the pet's name, animal type, and scheduled tasks. Each pet can have multiple tasks.
+3. **Task:** Stores information about a task, such as its description, date, time, priority, and whether it is completed.
+4. **Scheduler:** Organizes tasks for all pets. It can sort tasks by time, filter tasks, and find scheduling conflicts.
+
+I chose these four classes because they each have their own job. This makes the program easier to understand and update.
 
 **b. Design changes**
 
