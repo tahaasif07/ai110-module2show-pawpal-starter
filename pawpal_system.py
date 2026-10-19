@@ -17,7 +17,11 @@ class Task:
     
     #Completes a task and create the next one if repeating
     def mark_complete(self):
+        if self.completed:
+            return None
         self.completed = True
+
+
 
         #Checks if the task repeats
         if self.frequency == "daily":

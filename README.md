@@ -198,7 +198,6 @@ In the future, I would like to add:
 - Priority-based scheduling
 - Detection of overlapping task durations
 - Task editing and completion buttons in Streamlit
-- Filtering controls in the website
 - Notifications for upcoming tasks
 - Saving data between application sessions
 
