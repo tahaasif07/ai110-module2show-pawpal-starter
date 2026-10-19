@@ -4,6 +4,7 @@ from pawpal_system import Owner, Pet, Task, Scheduler
 
 
 st.set_page_config(page_title="PawPal+", page_icon="🐾", layout="centered")
+st.title("🐾 PawPal+")
 
 
 st.write(
@@ -67,8 +68,16 @@ st.subheader("Schedule a Task")
 if st.session_state.owner.pets:
 
     #This chooses which pet gets the task
-    pet_names = [pet.name for pet in st.session_state.owner.pets]
-    selected_pet = st.selectbox("Choose a pet", pet_names)
+    
+    pet_numbers = list(range(len(st.session_state.owner.pets)))
+
+    selected_number = st.selectbox(
+        "Choose a pet",
+        pet_numbers,
+        format_func=lambda i: st.session_state.owner.pets[i].name
+    )
+
+    selected_pet = st.session_state.owner.pets[selected_number]
 
     task_title = st.text_input("Task description")
     due_date = st.date_input("Task date")
@@ -91,13 +100,13 @@ if st.session_state.owner.pets:
                 frequency=frequency
             )
 
-            #Finds the selected pet and add its task
-            for pet in st.session_state.owner.pets:
-                if pet.name == selected_pet:
-                    pet.add_task(new_task)
-                    break
+      
+            #Adds the task to the selected pet
+            selected_pet.add_task(new_task)
 
             st.success("Task added!")
+
+
 
         else:
             st.warning("Please enter a task description.")
